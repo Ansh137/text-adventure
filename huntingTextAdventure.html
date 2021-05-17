@@ -1,0 +1,223 @@
+<html>
+<head>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link rel = "stylesheet" href = "hunt.css">
+<title>The forest adventure</title>
+<script>
+
+function getName()
+{
+var y = document.getElementById("textbox").value;
+document.getElementById("nameTag").innerHTML = "Welcome Hunter " + y;
+document.getElementById("choosePath").innerHTML = "<input id = 'button' type = 'button' value = 'Next' onclick = 'pathChoice()'>";
+}
+
+function pathChoice()
+{
+
+document.getElementById("choosePath").innerHTML = "Which country will you go?";
+document.getElementById("countryOption").innerHTML = "<input id = 'button' type = 'button' value = 'America' onclick = 'countryChoice(this.value)'>  <input id = 'button' type = 'button' value = 'South Africa' onclick = 'countryChoice(this.value)'>";
+}
+
+
+function hideStuff()
+{
+document.getElementById('intro').style.visibility = "hidden";
+document.getElementById('endGame').style.visibility = "hidden";
+document.getElementById('hideThis').style.visibility = "hidden";
+document.getElementById('newHunts').style.visibility = "hidden";
+document.getElementById('randomBox').style.visibility = "hidden";
+document.getElementById('huntRes').style.visibility = "hidden";
+document.getElementById('saveStat').style.visibility = "hidden";
+document.getElementById('getStat').style.visibility = "hidden";
+}
+
+
+function countryChoice(chosenCountry)
+{
+document.getElementById("countryOption").innerHTML = "You chose " + chosenCountry + " direction";
+document.getElementById("country").innerHTML = "Country Selected: " + chosenCountry;
+var moneyamt = 0;
+document.getElementById("money").innerHTML = "money level: " + moneyamt + "/1000";
+document.getElementById("landscapeSelection").innerHTML = "You will now select a landscape for the adventure";
+document.getElementById("options").innerHTML = "You are now going to enter a hunting adventure. Click confirm and enter 1-Desert, 2-Ocean or 3-Forest";
+
+if (chosenCountry == 'America'){
+  document.getElementById("selection").innerHTML = "<input id = 'button' type = 'button' value = 'Confirm' onclick ='enterAmerica()'>";
+}
+if (chosenCountry == 'South Africa'){
+  document.getElementById("selection").innerHTML = "<input id = 'button' type = 'button' value = 'Confirm' onclick ='enterAfrica()'>";
+}
+
+}
+
+function enterAmerica()
+{
+document.getElementById('intro').style.visibility = "visible";
+var landscape = document.getElementById("landsacpeSelect").value;
+landscape = parseInt(landscape)
+
+if (landscape == 1)
+{
+document.getElementById("intro").innerHTML =  "you are hunting a rattlesnake. Watch out they are extremely poisonous!";
+document.getElementById("encounter").innerHTML = "After running after the snake for hours you set up a trap and catch it.It sells for 500 dollars (Money earned + 500)";
+document.getElementById("money").innerHTML = "Money earned: 500/1000";
+document.getElementById("goal").innerHTML = "Your goal for the day is to earn 1000 dollars";
+document.getElementById("huntMore").innerHTML = "To acheive your goal you set out to hunt more. Click on the image to hunt your next prey.";
+
+}
+
+if (landscape == 2)
+{
+document.getElementById("intro").innerHTML =  "you are hunting a shark. These animals have deadly teeth!";
+document.getElementById("encounter").innerHTML = "Luckily,you manage to get scuba gear and lure it away from it's pack. After capturing it you earned (Money earned + 500)";
+document.getElementById("money").innerHTML = "Money earned: 500/1000";
+document.getElementById("goal").innerHTML = "Your goal for the day is to earn 1000 dollars";
+document.getElementById("huntMore").innerHTML = "To acheive your goal you set out to hunt more. Click on the image to hunt your next prey.";
+}
+
+if (landscape == 3)
+{
+  document.getElementById("intro").innerHTML =  "you are hunting a bear. These animals are dangerous at times.";
+  document.getElementById("encounter").innerHTML = "Luckily,you manage to get their attention. After hunting it you earned (Money earned + 500)";
+  document.getElementById("money").innerHTML = "Money earned: 500/1000";
+  document.getElementById("goal").innerHTML = "Your goal for the day is to earn 1000 dollars";
+document.getElementById("huntMore").innerHTML = "To acheive your goal you set out to hunt more. Click on the image to hunt your next prey.";
+}
+
+}
+
+function enterAfrica()
+{
+document.getElementById('intro').style.visibility = "visible";
+var landscape = document.getElementById("landsacpeSelect").value;
+landscape = parseInt(landscape)
+
+if (landscape == 1)
+{
+document.getElementById("intro").innerHTML =  "You are trying to hunt a camel.These aniimals are very fast and adapted to the climate.";
+document.getElementById("encounter").innerHTML = "You hunt down the camel after trecking for days. It sells for 500 dollars in the market (Money earned + 500)";
+document.getElementById("money").innerHTML = "Money earned: 500/1000";
+document.getElementById("goal").innerHTML = "Your goal for the day is to earn 1000 dollars";
+document.getElementById("huntMore").innerHTML = "To acheive your goal you set out to hunt more. Click on the image to hunt your next prey.";
+}
+
+if (landscape == 2)
+{
+document.getElementById("intro").innerHTML =  "You are hunting a whale. These animals travel in packs and are very large!";
+document.getElementById("encounter").innerHTML = "You cast anet onto it from a fisherman's boat and bring it in. After capturing it you earned 500 dollars (Money earned + 500)";
+document.getElementById("money").innerHTML = "Money earned: 500/1000";
+document.getElementById("goal").innerHTML = "Your goal for the day is to earn 1000 dollars";
+document.getElementById("huntMore").innerHTML = "To acheive your goal you set out to hunt more. Click on the image to hunt your next prey.";
+}
+
+if (landscape == 3)
+{
+  document.getElementById("intro").innerHTML =  "You are huntng a giraffe.This anmal is super tall and agile.";
+  document.getElementById("encounter").innerHTML = "You distract the giraffe and by giving it leaves to chew on.You earn 400 dollars by selling it (Money earned + 500)";
+  document.getElementById("money").innerHTML = "Money earned: 500/1000";
+  document.getElementById("goal").innerHTML = "Your goal for the day is to earn 1000 dollars";
+document.getElementById("huntMore").innerHTML = "To acheive your goal you set out to hunt more. Click on the image to hunt your next prey.";}
+
+}
+
+
+function furtherHunting()
+{
+document.getElementById("newHunts").style.visibility = "visible";
+document.getElementById("info").innerHTML = "You go back to the site every couple of days until you are satisfied";
+document.getElementById("nextInfo").innerHTML = "You hunt evry opprotunity andd rest whenever you can in between. ";
+document.getElementById("huntAttempts").innerHTML = "How many hunts did you decide to go on further? Report between a minium of one hunt to a maximum of five hunts.";
+var steps = document.getElementById("huntCounter").value;
+steps = parseInt(steps);
+var amt = 500;
+var final = ""
+for (var i = 1; i <= steps; i++)
+{
+amt = 500 * (i+1);
+final = final + "Hunt " + (i+1) + ": "  + amt + "<br>";
+document.getElementById("endGame").style.visibility = "visible";
+}
+document.getElementById("successMessage").innerHTML = final;
+}
+
+
+function huntResult()
+{
+document.getElementById("victory").innerHTML = "You have won the hunting. Please check at the bottom for the stats"
+document.getElementById("saveStat").style.visibility = "visible";
+}
+
+
+function saveStats()
+{
+document.getElementById('getStat').style.visibility = "visible";
+
+var a = document.getElementById("textbox").value;
+window.localStorage.setItem('statsName', a);
+}
+
+function pageTwo()
+{
+  window.location.href = "test1.html";
+}
+
+</script>
+</head>
+
+<body onload="hideStuff()">
+  <img SRC = "hunt.jpeg" onclick= "furtherHunting()">
+<h1><center>The Hunt</h1>
+  <hr><br>
+<table class = "table">
+<tr>
+<td><p id = "money">money Level: </p></td>
+<td><p id = "country">Country Selected: </p></td>
+</tr>
+</table>
+<p id = "goal">
+<p>please enter your name</p>
+<input id = "textbox" type = "text" placeholder = "Enter Name">
+<input id = "button" type = "button" value = "Submit" onclick = "getName()">
+<p id = "nameTag"></p>
+<p id = "choosePath"></p>
+<p id = "fnal"></p>
+<p id = "countryOption"></p>
+<p id = "landscapeSelection"></p>
+<p id = "options"></p>
+<p id = "selection"></p>
+<p id = intro>
+<input id = "landsacpeSelect" type = "text" placeholder = "Enter #">
+<input id = "button" type = "button" value = "Enter American Landscape" onclick = "enterAmerica()">
+<input id = "button" type = "button" value = "Enter African Landscape" onclick = "enterAfrica()">
+</p>
+<p id = "encounter"></p>
+<p id = "huntMore"></p>
+<p id = "info"></p>
+<p id = "nextInfo"></p>
+<p id = "huntAttempts"></p>
+<p id = "newHunts">
+<input id = "huntCounter" type = "text" placeholder = "Enter #">
+<input id = "button" type = "button" value = "Further Hunts" onclick = "furtherHunting()">
+</p>
+<p id = "successMessage"></p>
+<p id = "hideThis"></p>
+<p id = "endGame">
+
+<input id = "button" type = "button" value = "End Game" onclick = "huntResult()">
+</p>
+<p id = "randomBox">
+</p>
+<p id = "huntRes">
+<input id = "button" type = "button" value = "Leave Dungeon" onclick = "huntResult()">
+</p>
+<p id = "victory">
+<p id = "saveStat">
+<input id = "button" type = "button" value = "Save Stats" onclick = "saveStats()">
+</p>
+<p id = "getStat">
+<input id = "button" type = "button" onclick = "pageTwo()" value = "Get Stats on Next Page" />
+</p>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <script>
+
+      function hideo()
+      {
+        document.getElementById('hide').style.visibility = "hidden";
+      }
+
+    function getsStats()
+      {
+        document.getElementById('hide').style.visibility = "visible";
+        var a = window.localStorage.getItem('statsName');
+        document.getElementById("first").innerHTML = "Hunter Name: " + a;
+
+      }
+    </script>
+  </head>
+
+  <body onload = "hideo()"><center>
+
+      <h1>Stats Data</h1>
+      <hr><br>
+
+      <input id = "button" type = "button" value = "Check Stats" onclick = "getsStats()">
+      <p id = "first"></p>
+      <p id = "hide">Money Target: 1000</p>
+
+   </body>
+</html>
